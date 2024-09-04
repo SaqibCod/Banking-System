@@ -30,12 +30,10 @@ public class Banking_App {
                 System.out.println("3. Exit");
                 System.out.println("Enter Your choice: ");
                 int choice1 = sc.nextInt();
-
                 switch (choice1){
 
                     case 1:
                         user.register();
-                        System.out.flush();
                         break;
                     case 2:
                          email = user.login();
@@ -46,11 +44,26 @@ public class Banking_App {
                                 System.out.println();
                                 System.out.println("1. Open a new Bank Account");
                                 System.out.println("2. Exit");
-
+                                if (sc.nextInt() == 1){
+                                    account_num = account.open_account(email);
+                                    System.out.println("Account Created Successfully");
+                                    System.out.println("Account Number: " + account_num);
+                                }else {
+                                    break;
+                                }
                             }
-
-
-
+                            account_num = account.getAccount_number(email);
+                            int choice2 = 0;
+                            while (choice2 != 5){
+                                System.out.println();
+                                System.out.println("1. Debit Money");
+                                System.out.println("2. Credit Money");
+                                System.out.println("3. Transfer Money");
+                                System.out.println("4. check Balance");
+                                System.out.println("5. Log Out");
+                                System.out.println("Enter Choice: ");
+                                choice2 = sc.nextInt();
+                            }
                         }else {
                             System.out.println("Incorrect email or password");
                         }
@@ -59,6 +72,8 @@ public class Banking_App {
                         System.out.println("THANK YOU FOR USING BANKING SYSTEM!!!");
                         System.out.println("Exiting System...");
                         return;
+                    default:
+                        System.out.println("Invalid Choice!!!");
                 }
 
             }
