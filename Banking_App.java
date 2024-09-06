@@ -63,6 +63,27 @@ public class Banking_App {
                                 System.out.println("5. Log Out");
                                 System.out.println("Enter Choice: ");
                                 choice2 = sc.nextInt();
+                                switch (choice2){
+
+                                    case 1:
+                                        accountManager.debit_money(account_num);
+                                        break;
+                                    case 2:
+                                        accountManager.credit_money(account_num);
+                                        break;
+                                    case 3:
+                                        accountManager.transfer_money(account_num);
+                                        break;
+                                    case 4:
+                                        accountManager.getBalance(account_num);
+                                        break;
+                                    case 5:
+                                        sc.close();
+                                        return;
+
+                                    default:
+                                        System.out.println("Invalid Value Choose! Try again");
+                                }
                             }
                         }else {
                             System.out.println("Incorrect email or password");
@@ -75,6 +96,7 @@ public class Banking_App {
                     default:
                         System.out.println("Invalid Choice!!!");
                 }
+
 
             }
 
